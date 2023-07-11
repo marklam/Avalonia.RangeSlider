@@ -263,15 +263,15 @@
 	<!-- Normal State -->
 
 	<Style Selector="local|RangeSlider /template/ Thumb.LowerThumbStyle">
-		<Setter Property="Background" Value="{DynamicResource MaterialDesignForeground}" />
+		<Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
 	</Style>
 
 	<Style Selector="local|RangeSlider /template/ Thumb.UpperThumbStyle">
-		<Setter Property="Background" Value="{DynamicResource MaterialDesignForeground}" />
+		<Setter Property="Background" Value="{DynamicResource PrimaryHueMidBrush}" />
 	</Style>
 
 	<Style Selector="local|RangeSlider /template/ Grid#SliderContainer">
-		<Setter Property="Background" Value="{DynamicResource MaterialDesignBackground}" />
+		<Setter Property="Background" Value="{DynamicResource ThemeBackgroundBrush}" />
 	</Style>
 
 	<Style Selector="local|RangeSlider /template/ TickBar">
