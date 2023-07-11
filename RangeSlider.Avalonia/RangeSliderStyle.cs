@@ -73,7 +73,7 @@ public class RangeSliderStyle : AvaloniaObject, IStyle, IResourceProvider
 	bool IResourceNode.HasResources =>
 		(Loaded as IResourceProvider)?.HasResources ?? false;
 
-	public event EventHandler OwnerChanged
+	public event EventHandler? OwnerChanged
 	{
 		add
 		{
@@ -91,11 +91,11 @@ public class RangeSliderStyle : AvaloniaObject, IStyle, IResourceProvider
 		}
 	}
 
-	public bool TryGetResource(object key, out object? value)
+    bool IResourceNode.TryGetResource(object key, ThemeVariant? theme, out object? value)
 	{
 		if (!_isLoading && Loaded is IResourceProvider p)
 		{
-			return p.TryGetResource(key, out value);
+            return p.TryGetResource(key, theme, out value);
 		}
 
 		value = null;
@@ -107,11 +107,6 @@ public class RangeSliderStyle : AvaloniaObject, IStyle, IResourceProvider
 
 	void IResourceProvider.RemoveOwner(IResourceHost owner) =>
 		(Loaded as IResourceProvider)?.RemoveOwner(owner);
-
-	SelectorMatchResult IStyle.TryAttach(IStyleable target, object? host)
-	{
-		return Loaded.TryAttach(target, host);
-	}
 
 	IReadOnlyList<IStyle> IStyle.Children =>
 		_loaded?.Children ?? Array.Empty<IStyle>();

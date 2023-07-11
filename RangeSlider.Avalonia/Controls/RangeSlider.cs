@@ -105,7 +105,7 @@ public class RangeSlider : RangeBase
     /// <summary>
     /// Defines the <see cref="TicksProperty"/> property.
     /// </summary>
-    public static readonly StyledProperty<AvaloniaList<double>> TicksProperty =
+    public static readonly StyledProperty<AvaloniaList<double>?> TicksProperty =
         TickBar.TicksProperty.AddOwner<RangeSlider>();
 
     // Slider required parts
@@ -144,7 +144,7 @@ public class RangeSlider : RangeBase
     /// <summary>
     /// Defines the ticks to be drawn on the tick bar.
     /// </summary>
-    public AvaloniaList<double> Ticks
+    public AvaloniaList<double>? Ticks
     {
         get => GetValue(TicksProperty);
         set => SetValue(TicksProperty, value);
@@ -241,8 +241,8 @@ public class RangeSlider : RangeBase
         AddHandler(PointerMovedEvent, TrackMoved, RoutingStrategies.Tunnel);
         AddHandler(PointerReleasedEvent, TrackReleased, RoutingStrategies.Tunnel);
 
-        _lowerThumb.AddHandler(PointerMovedEvent, PointerOverThumb, RoutingStrategies.Tunnel);
-        _upperThumb.AddHandler(PointerMovedEvent, PointerOverThumb, RoutingStrategies.Tunnel);
+        _lowerThumb?.AddHandler(PointerMovedEvent, PointerOverThumb, RoutingStrategies.Tunnel);
+        _upperThumb?.AddHandler(PointerMovedEvent, PointerOverThumb, RoutingStrategies.Tunnel);
     }
 
     protected override void OnKeyDown(KeyEventArgs e)
@@ -602,22 +602,22 @@ public class RangeSlider : RangeBase
         if (placement == ThumbFlyoutPlacement.None)
             return;
 
-        var placementMode = FlyoutPlacementMode.Auto;
+        var placementMode = PlacementMode.Top;
 
         if (placement == ThumbFlyoutPlacement.TopLeft && Orientation == Orientation.Horizontal)
-            placementMode = FlyoutPlacementMode.Top;
+            placementMode = PlacementMode.Top;
         else if (placement == ThumbFlyoutPlacement.TopLeft && Orientation == Orientation.Vertical)
-            placementMode = FlyoutPlacementMode.Left;
+            placementMode = PlacementMode.Left;
         else if (placement == ThumbFlyoutPlacement.BottomRight && Orientation == Orientation.Horizontal)
-            placementMode = FlyoutPlacementMode.Bottom;
+            placementMode = PlacementMode.Bottom;
         else if (placement == ThumbFlyoutPlacement.BottomRight && Orientation == Orientation.Vertical)
-            placementMode = FlyoutPlacementMode.Right;
+            placementMode = PlacementMode.Right;
 
-        var lowerFlyout = FlyoutBase.GetAttachedFlyout(_lowerThumb);
+        var lowerFlyout = FlyoutBase.GetAttachedFlyout(_lowerThumb) as PopupFlyoutBase;
         if (lowerFlyout != null)
             lowerFlyout.Placement = placementMode;
 
-        var upperFlyout = FlyoutBase.GetAttachedFlyout(_upperThumb);
+        var upperFlyout = FlyoutBase.GetAttachedFlyout(_upperThumb) as PopupFlyoutBase;
         if (upperFlyout != null)
             upperFlyout.Placement = placementMode;
     }

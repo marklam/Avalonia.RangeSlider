@@ -5,12 +5,11 @@ using Avalonia.Interactivity;
 using Avalonia.Markup.Xaml;
 using Avalonia.Markup.Xaml.Styling;
 using Avalonia.Themes.Fluent;
-using Avalonia.Themes.Simple;
 using RangeSlider.Avalonia.Enums;
 
 namespace RangeSlider.Avalonia.SampleApp.Views;
 
-public class MainWindow : Window
+public partial class MainWindow : Window
 {
     private bool _isMatherial;
 
@@ -31,12 +30,12 @@ public class MainWindow : Window
     {
         Application.Current?.Styles.Clear();
 
-        var appUri = new Uri("avares://Avalonia.RangeSlider.SampleApp/App.axaml");
+        var appUri = new Uri("avares://RangeSlider.Avalonia.SampleApp/App.axaml");
         var rStyle = new RangeSliderStyle(appUri);
 
         if (!_isMatherial)
         {
-            var baseAppUri = new Uri("avares://Avalonia.RangeSlider.SampleApp");
+            var baseAppUri = new Uri("avares://RangeSlider.Avalonia.SampleApp");
 
             var styleInclude = new StyleInclude(baseAppUri)
             {
@@ -49,7 +48,7 @@ public class MainWindow : Window
 		}
         else
         {
-            var fluent = new FluentTheme(appUri);
+            var fluent = new FluentTheme();
             Application.Current?.Styles.Add(fluent);
             Application.Current?.Styles.Add(rStyle);
         }
