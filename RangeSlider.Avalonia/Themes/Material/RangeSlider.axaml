@@ -92,22 +92,18 @@
 										</localPrimitives:RangeTrack.ForegroundButton>
 
 										<localPrimitives:RangeTrack.LowerThumb>
-											<Thumb Classes="LowerThumbStyle" Name="PART_LowerThumb" Margin="0" Padding="0" DataContext="{TemplateBinding LowerSelectedValue}" Height="{DynamicResource SliderHorizontalThumbHeight}" Width="{DynamicResource SliderHorizontalThumbWidth}">
-												<FlyoutBase.AttachedFlyout>
-													<Flyout FlyoutPresenterClasses="ThumbFlyout" Placement="Top" ShowMode="TransientWithDismissOnPointerMoveAway">
-														<TextBlock Text="{Binding #PART_Track.LowerSelectedValue, StringFormat='\{0:0\}'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-													</Flyout>
-												</FlyoutBase.AttachedFlyout>
+											<Thumb Classes="LowerThumbStyle" Name="PART_LowerThumb" Margin="0" Padding="0" DataContext="{TemplateBinding LowerSelectedValue}" Height="{DynamicResource SliderHorizontalThumbHeight}" Width="{DynamicResource SliderHorizontalThumbWidth}" ToolTip.VerticalOffset="0">
+											  <ToolTip.Tip>
+												<TextBlock Text="{Binding #PART_Track.LowerSelectedValue, StringFormat='\{0:0\}'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+											  </ToolTip.Tip>
 											</Thumb>
 										</localPrimitives:RangeTrack.LowerThumb>
 
 										<localPrimitives:RangeTrack.UpperThumb>
-											<Thumb Classes="UpperThumbStyle" Name="PART_UpperThumb" Margin="0" Padding="0" DataContext="{TemplateBinding UpperSelectedValue}" Height="{DynamicResource SliderHorizontalThumbHeight}" Width="{DynamicResource SliderHorizontalThumbWidth}">
-												<FlyoutBase.AttachedFlyout>
-													<Flyout FlyoutPresenterClasses="ThumbFlyout" Placement="Top" ShowMode="TransientWithDismissOnPointerMoveAway">
-														<TextBlock Text="{Binding #PART_Track.UpperSelectedValue, StringFormat='\{0:0\}'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-													</Flyout>
-												</FlyoutBase.AttachedFlyout>
+											<Thumb Classes="UpperThumbStyle" Name="PART_UpperThumb" Margin="0" Padding="0" DataContext="{TemplateBinding UpperSelectedValue}" Height="{DynamicResource SliderHorizontalThumbHeight}" Width="{DynamicResource SliderHorizontalThumbWidth}" ToolTip.VerticalOffset="0">
+											  <ToolTip.Tip>
+												<TextBlock Text="{Binding #PART_Track.UpperSelectedValue, StringFormat='\{0:0\}'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+											  </ToolTip.Tip>
 											</Thumb>
 										</localPrimitives:RangeTrack.UpperThumb>
 
@@ -176,21 +172,17 @@
 
 										<localPrimitives:RangeTrack.LowerThumb>
 											<Thumb Classes="LowerThumbStyle" Name="PART_LowerThumb" Margin="0" Padding="0" DataContext="{TemplateBinding LowerSelectedValue}" Height="{DynamicResource SliderHorizontalThumbHeight}" Width="{DynamicResource SliderHorizontalThumbWidth}">
-												<FlyoutBase.AttachedFlyout>
-													<Flyout FlyoutPresenterClasses="ThumbFlyout" Placement="Top" ShowMode="TransientWithDismissOnPointerMoveAway">
-														<TextBlock Text="{Binding #PART_Track.LowerSelectedValue, StringFormat='\{0:0\}'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-													</Flyout>
-												</FlyoutBase.AttachedFlyout>
+											  <ToolTip.Tip>
+												<TextBlock Text="{Binding #PART_Track.LowerSelectedValue, StringFormat='\{0:0\}'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+											  </ToolTip.Tip>
 											</Thumb>
 										</localPrimitives:RangeTrack.LowerThumb>
 
 										<localPrimitives:RangeTrack.UpperThumb>
 											<Thumb Classes="UpperThumbStyle" Name="PART_UpperThumb" Margin="0" Padding="0" DataContext="{TemplateBinding UpperSelectedValue}" Height="{DynamicResource SliderHorizontalThumbHeight}" Width="{DynamicResource SliderHorizontalThumbWidth}">
-												<FlyoutBase.AttachedFlyout>
-													<Flyout FlyoutPresenterClasses="ThumbFlyout" Placement="Top" ShowMode="TransientWithDismissOnPointerMoveAway">
-														<TextBlock Text="{Binding #PART_Track.UpperSelectedValue, StringFormat='\{0:0\}'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-													</Flyout>
-												</FlyoutBase.AttachedFlyout>
+											  <ToolTip.Tip>
+												<TextBlock Text="{Binding #PART_Track.UpperSelectedValue, StringFormat='\{0:0\}'}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+											  </ToolTip.Tip>
 											</Thumb>
 										</localPrimitives:RangeTrack.UpperThumb>
 									</localPrimitives:RangeTrack>

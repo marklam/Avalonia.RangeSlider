@@ -119,7 +119,7 @@ public class RangeSlider : RangeBase
     private const double Tolerance = 0.0001;
 
     /// <summary>
-    /// Initializes static members of the <see cref="RangeSlider"/> class. 
+    /// Initializes static members of the <see cref="RangeSlider"/> class.
     /// </summary>
     static RangeSlider()
     {
@@ -134,7 +134,7 @@ public class RangeSlider : RangeBase
     }
 
     /// <summary>
-    /// Instantiates a new instance of the <see cref="RangeSlider"/> class. 
+    /// Instantiates a new instance of the <see cref="RangeSlider"/> class.
     /// </summary>
     public RangeSlider()
     {
@@ -218,7 +218,7 @@ public class RangeSlider : RangeBase
     }
 
     /// <summary>
-    /// Gets or sets a value that indicates where to draw 
+    /// Gets or sets a value that indicates where to draw
     /// tick marks in relation to the track.
     /// </summary>
     public TickPlacement TickPlacement
@@ -412,7 +412,7 @@ public class RangeSlider : RangeBase
                 break;
             case TrackThumb.Both:
                 var delta = value - _previousValue;
-                
+
                 if ((Math.Abs(LowerSelectedValue - Minimum) <= Tolerance && delta <= 0d)
                     || (Math.Abs(UpperSelectedValue - Maximum) <= Tolerance && delta >= 0d))
                     return;
@@ -600,7 +600,11 @@ public class RangeSlider : RangeBase
     private void ApplyThumbFlyoutPlacement(ThumbFlyoutPlacement placement)
     {
         if (placement == ThumbFlyoutPlacement.None)
+        {
+            ToolTip.SetShowDelay(_lowerThumb, Int32.MaxValue);
+            ToolTip.SetShowDelay(_upperThumb, Int32.MaxValue);
             return;
+        }
 
         var placementMode = PlacementMode.Top;
 
@@ -613,13 +617,10 @@ public class RangeSlider : RangeBase
         else if (placement == ThumbFlyoutPlacement.BottomRight && Orientation == Orientation.Vertical)
             placementMode = PlacementMode.Right;
 
-        var lowerFlyout = FlyoutBase.GetAttachedFlyout(_lowerThumb) as PopupFlyoutBase;
-        if (lowerFlyout != null)
-            lowerFlyout.Placement = placementMode;
-
-        var upperFlyout = FlyoutBase.GetAttachedFlyout(_upperThumb) as PopupFlyoutBase;
-        if (upperFlyout != null)
-            upperFlyout.Placement = placementMode;
+        ToolTip.SetPlacement(_lowerThumb, placementMode);
+        ToolTip.SetShowDelay(_lowerThumb, 0);
+        ToolTip.SetPlacement(_upperThumb, placementMode);
+        ToolTip.SetShowDelay(_upperThumb, 0);
     }
 
     private void ThumbFlyoutPlacementChanged(AvaloniaPropertyChangedEventArgs e)
